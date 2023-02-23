@@ -25,7 +25,7 @@ namespace RandomMenu
             InitializeComponent();
         }
     }
-    class MenuItem// pg 208
+    class MenuItem
     {
         public Random Randomizer = new Random();
 
@@ -35,5 +35,19 @@ namespace RandomMenu
 
         public string Description = "";
         public string Price;
+
+        public void Generate()
+        {
+            string randomProtein = Proteins[Randomizer.Next(Proteins.Length)];
+            string randomCondiment = Condiments[Randomizer.Next(Condiments.Length)];
+            string randomBread = Breads[Randomizer.Next(Breads.Length)];
+            Description = randomProtein + " with " + randomCondiment + " on " + randomBread;
+
+            decimal bucks = Randomizer.Next(2, 5);
+            decimal cents = Randomizer.Next(1, 98);
+            decimal price = bucks + (cents * 1.0M);
+            // "c" format tells ToString to format the value with the local currency, $ for US
+            Price = price.ToString("c");
+        }
     }
 }
