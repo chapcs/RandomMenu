@@ -25,7 +25,7 @@ namespace RandomMenu
             InitializeComponent();
         }
     }
-    class MenuItem
+    class MenuItem// pg 208
     {
         public Random Randomizer = new Random();
 
