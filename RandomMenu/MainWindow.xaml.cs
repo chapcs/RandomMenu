@@ -29,7 +29,6 @@ namespace RandomMenu
         private void MakeTheMenu()
         {
             MenuItem[] menuItems = new MenuItem[5];
-            string guacamolePrice;
 
             for (int i = 0; i < 5; i++)
             {
@@ -52,7 +51,7 @@ namespace RandomMenu
 
             MenuItem specialMenuItem = new MenuItem()
             {
-                Proteins = new string[] { "canadian bacon", "mushroom", "mortadella" },
+                Proteins = new string[] { "Canadian bacon", "Mushroom", "Mortadella" },
                 Condiments = new string[] { "dijon", "miso", "au jus" },
                 Breads = new string[] { "baguette", "wrap", "pita" }
             };
@@ -63,16 +62,16 @@ namespace RandomMenu
 
             MenuItem guacamoleMenuItem = new MenuItem();
             guacamoleMenuItem.Generate();
-            guacamolePrice = guacamoleMenuItem.Price;
 
             guacamole.Text = "Add guacamole for " + guacamoleMenuItem.Price;
         }
     }
     class MenuItem
     {
-        public Random Randomizer = new Random();
+        // making this instance static so all MenuItems share the same instance
+        public static Random Randomizer = new Random();
 
-        public string[] Proteins = { "roast beef", "salami", "turkey", "ham", "pastrami", "tofu" };
+        public string[] Proteins = { "Roast beef", "Salami", "Turkey", "Ham", "Pastrami", "Tofu" };
         public string[] Condiments = { "yellow mustard", "brown mustard", "honey mustard", "mayo", "relish", "french dressing" };
         public string[] Breads = { "rye", "white", "wheat", "pumpernickel", "brioche" };
 
@@ -86,9 +85,9 @@ namespace RandomMenu
             string randomBread = Breads[Randomizer.Next(Breads.Length)];
             Description = randomProtein + " with " + randomCondiment + " on " + randomBread;
 
-            decimal bucks = Randomizer.Next(2, 5);
+            decimal bucks = Randomizer.Next(5, 10);
             decimal cents = Randomizer.Next(1, 98);
-            decimal price = bucks + (cents * 1.0M);
+            decimal price = bucks + (cents * .01M);
             // "c" format tells ToString to format the value with the local currency, $ for US
             Price = price.ToString("c");
         }
