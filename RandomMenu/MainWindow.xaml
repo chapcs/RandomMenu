@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomMenu"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Welcome to Sloppy Joe's Bread &amp; Buds" Height="350" Width="550">
     <Grid>
         
     </Grid>
